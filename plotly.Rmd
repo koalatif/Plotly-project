@@ -1,0 +1,27 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+<!-- R Commander Markdown Template -->
+
+WEEK 3 PLOTLY PROJECT
+=======================
+
+### KOALA Valentin
+
+### `r as.character(Sys.Date())`
+
+
+This famous (Fisher's or Anderson's) iris data set gives the measurements in centimeters of the variables sepal length and width and petal length and width, respectively, for 50 flowers from each of 3 species of iris. The species are Iris setosa, versicolor, and virginica.
+
+```{r echo=TRUE}
+# Iris data representation
+knitr::opts_chunk$set(comment=NA, prompt=TRUE, out.width=750, fig.height=8, fig.width=8)
+library(plotly)
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+p <- plot_ly(iris, x = ~Sepal.Width, y = ~Sepal.Length) 
+add_markers(p, color = ~Petal.Length, size = ~Petal.Length)
+```
+
